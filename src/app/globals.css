@@ -128,3 +128,17 @@
     @apply font-sans;
   }
 }
+
+/* Reloc8 demo: subtle diagonal stripe on white */
+@layer utilities {
+  .demo-app-bg {
+    background-color: #fafafa;
+    background-image: repeating-linear-gradient(
+      135deg,
+      #ffffff 0px,
+      #ffffff 11px,
+      #f3f4f6 11px,
+      #f3f4f6 12px
+    );
+  }
+}

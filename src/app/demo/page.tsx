@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function DemoPage() {
   return (
-    <div className="flex h-dvh flex-col overflow-hidden bg-background">
+    <div className="flex min-h-dvh w-full flex-col overflow-hidden bg-[#ffffff] px-3 py-4 sm:px-4">
       <DemoAgentClient />
     </div>
   )
