@@ -331,7 +331,8 @@ function DemoInner() {
                 <div className="absolute left-1/2 top-full z-10 -translate-x-1/2 -translate-y-1/2">
                   <Button
                     className={cn(
-                      "size-16 shrink-0 rounded-full p-0",
+                      "size-16 shrink-0 rounded-full p-0 transition-transform",
+                      status === "connecting" && "animate-pulse",
                       isCallActive
                         ? "border-0 bg-transparent shadow-none hover:bg-black/[0.04]"
                         : "border-[5px] border-white bg-[#1f1f1f] text-white hover:bg-[#2a2a2a]"
@@ -352,6 +353,22 @@ function DemoInner() {
                   </Button>
                 </div>
               </div>
+            </div>
+            <div
+              aria-live="polite"
+              className="flex min-h-[24px] shrink-0 items-center justify-center px-4 pb-6 text-center text-[14px] text-[#6c6c6c]"
+            >
+              {status === "connecting" ? (
+                <ShimmeringText text="Connecting to agent…" />
+              ) : isCallActive ? (
+                mode === "speaking" ? (
+                  "Agent is speaking"
+                ) : (
+                  "Listening…"
+                )
+              ) : (
+                "Tap the phone to start a call"
+              )}
             </div>
             {errorMessage && activeTab === "phone" && (
               <p className="text-destructive px-4 pb-4 text-center text-sm">
